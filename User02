@@ -1,28 +1,29 @@
-Feature: US02 - Búsqueda de trabajadores según ubicación
+Feature: US02 - Filtro según preferencias
 Como cliente
-Quiero saber cuales son los trabajadores independientes que estén cerca de mi hogar
-Para solicitar el servicio
+Quiero poder ordenar y filtrar la lista de trabajadores según mis preferencias antes de solicitar un servicio
+Para  tener una experiencia más personalizada
 
-Scenario: E1: El cliente busca trabajadores independientes de acuerdo a su
+
+Scenario: E1: El cliente accede a la lista de trabajadores ubicados
 localización
     Dado que el cliente se encuentra en “Búsqueda de trabajadores”
-    Cuando el cliente haga clic en el icono de localización
-    Entonces la plataforma accede a su ubicación
-    Y la plataforma le muestra un mapa con los trabajadores más cercanos a su
-    ubicación con sus respectivas calificaciones
+    Cuando haga clic en “Lista”
+    Entonces  la plataforma muestra la lista de trabajadores ordenados, por defecto, de
+    acuerdo a su cercanía
+
 
     Examples: 
     | Botón | clic | Ubicación | Mensaje |
-    | “Búsqueda de trabajadores” | icono de localización | Torres Matos141 | Cuatro servicios cercanos disponibles |
+    | “Búsqueda de trabajadores” | “Lista” | Torres de Matellini | Diez servicios cercanos disponibles en Matellini |
     
     
 Scenario: E2: El cliente busca trabajadores independientes ingresando una dirección
-    Dado que el cliente se encuentra en “Búsqueda de trabajadores”
-    Cuando el cliente ingrese una dirección en la barra de búsqueda
-    Y el cliente presione “Enter” o haga clic en el ícono de búsqueda
-    Entonces la plataforma le muestra un mapa con los trabajadores más cercanos a la
-    dirección ingresada con sus respectivas calificaciones 
+    Dado que el cliente visualiza la lista de trabajadores ordenados por cercanía
+    Cuando el cliente haga clic en “Filtrar”
+    Y el cliente seleccione el tipo de servicio
+    Entonces la plataforma muestra solo los trabajadores que brinden el servicio Seleccionado
+
 
     Examples: 
-    | Botón | Direccion | Clic | Mensaje |
-    | “Búsqueda de trabajadores” | Miraflores | ícono de búsqueda| Cinco servicios cercanos disponibles a la ubicacion indicada|
+    | Clic | Servicio |
+    | “Filtrar” | Jardineria | Veinte servicios disponible de jardineria |

@@ -1,0 +1,26 @@
+Feature: US03 - Enviar solicitud de servicio
+Como cliente
+Quiero solicitar a los trabajadores una cotización de acuerdo al servicio que necesito
+Para sí elegir a quién contratar según mi presupuesto
+
+Scenario: E1: El cliente visualiza el formulario de solicitud de servicio
+    Dado que el cliente que encuentra en el perfil de un trabajador
+    Cuando el cliente haga clic en el botón “Solicitar Servicio”
+    Entonces la app muestra el formulario de solicitud de servicio con los campos para
+    completar: Dirección, Descripción del servicio, Imágenes, etc.
+
+    Examples: 
+    | Acción | Botón | Acción | 
+    | Pedro entra al perfil de un trabajador de limpieza | “Solicitar Servicio” | Llena el formulario | 
+    
+    
+Scenario: E2:El cliente envía la solicitud de servicio
+    Dado que el cliente se encuentra en el formulario de solicitud de servicio
+    Cuando el cliente llene todos los campos solicitados
+    Y el cliente haga clic en el botón “Cotizar”
+    Entonces la plataforma envía la solicitud al trabajador
+    Y la plataforma establece el estado de la solicitud como “Pendiente de cotización”
+
+    Examples: 
+    | Acción | Clic | Acción |
+    | Pedro llena el formulario para cotizar el trabajo  | “Cotizar” | El estado de solicitud se establece como “Pendiente de cotización”|

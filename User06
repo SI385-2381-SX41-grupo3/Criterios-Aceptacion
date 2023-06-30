@@ -1,1 +1,25 @@
+Feature: US03 - Contrato de Servicio
+Como cliente
+Quiero tener contratos con firma virtual y que se estipule algún tipo de garantía por posible incumplimiento del trabajador 
+Para tener seguridad al usar la plataforma
 
+Scenario: E1: El cliente visualiza el contrato de manera virtual
+    Dado que el cliente va a realizar el pago de un servicio
+    Cuando el cliente haga clic en “Pagar”
+    Entonces la plataforma muestra el contrato en plantilla con las cláusulas por posible
+    incumplimiento de contrato y campos para llenar con sus datos
+
+    Examples: 
+    | Acción | Botón | Acción | 
+    | Pedro entra al perfil de un trabajador de limpieza | “Pagar” | Llena el formulario | 
+    
+    
+Scenario: E2:El El cliente firma el contrato de manera virtual
+    Dado que el cliente visualiza el contrato de manera virtual
+    Cuando el cliente complete sus datos y firme de manera digital
+    Y el cliente haga clic en “Aceptar”
+    Entonces la plataforma guardará la información del contrato y mostrará la pasarela de pago.
+
+    Examples: 
+    | Acción | Clic | Acción |
+    | Pedro llena el formulario para cotizar el trabajo  | “Aceptar” | El estado de solicitud se establece como “Pendiente de cotización”|

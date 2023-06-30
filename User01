@@ -1,1 +1,28 @@
+Feature: US01 - Búsqueda de trabajadores según ubicación
+Como cliente
+Quiero saber cuales son los trabajadores independientes que estén cerca de mi hogar
+Para solicitar el servicio
 
+Scenario: E1: El cliente busca trabajadores independientes de acuerdo a su
+localización
+    Dado que el cliente se encuentra en “Búsqueda de trabajadores”
+    Cuando el cliente haga clic en el icono de localización
+    Entonces la plataforma accede a su ubicación
+    Y la plataforma le muestra un mapa con los trabajadores más cercanos a su
+    ubicación con sus respectivas calificaciones
+
+    Examples: 
+    | Botón | clic | Ubicación | Mensaje |
+    | “Búsqueda de trabajadores” | icono de localización | Torres Matos141 | Cuatro servicios cercanos disponibles |
+    
+    
+Scenario: E2: El cliente busca trabajadores independientes ingresando una dirección
+    Dado que el cliente se encuentra en “Búsqueda de trabajadores”
+    Cuando el cliente ingrese una dirección en la barra de búsqueda
+    Y el cliente presione “Enter” o haga clic en el ícono de búsqueda
+    Entonces la plataforma le muestra un mapa con los trabajadores más cercanos a la
+    dirección ingresada con sus respectivas calificaciones 
+
+    Examples: 
+    | Botón | Direccion | Clic | Mensaje |
+    | “Búsqueda de trabajadores” | Miraflores | ícono de búsqueda| Cinco servicios cercanos disponibles a la ubicacion indicada|
